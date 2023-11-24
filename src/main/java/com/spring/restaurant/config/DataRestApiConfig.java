@@ -14,13 +14,22 @@ public class DataRestApiConfig implements RepositoryRestConfigurer {
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
         HttpMethod[] prventeMethod={HttpMethod.GET,HttpMethod.POST,HttpMethod.PUT,HttpMethod.DELETE,HttpMethod.PATCH};
-        config.getExposureConfiguration()
+        disableHttpMethod(Order.class,config,prventeMethod);
+        disableHttpMethod(Category.class,config,prventeMethod);
+
+        /*config.getExposureConfiguration()
                 .forDomainType(Order.class)
                 .withItemExposure((metdata, httpMethods) -> httpMethods.disable(prventeMethod))
                 .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(prventeMethod));
         config.getExposureConfiguration()
                 .forDomainType(Category.class)
                 .withItemExposure(((metdata, httpMethods) -> httpMethods.disable(prventeMethod)))
-                .withCollectionExposure(((metdata, httpMethods) -> httpMethods.disable(prventeMethod)));
+                .withCollectionExposure(((metdata, httpMethods) -> httpMethods.disable(prventeMethod)));*/
+    }
+    public void disableHttpMethod(Class classname,RepositoryRestConfiguration config,HttpMethod[] prventeMethod){
+        config.getExposureConfiguration()
+                .forDomainType(classname)
+                .withItemExposure((metdata, httpMethods) -> httpMethods.disable(prventeMethod))
+                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(prventeMethod));
     }
 }

@@ -1,5 +1,6 @@
 package com.spring.restaurant.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GeneratedColumn;
@@ -19,6 +20,9 @@ public class Category extends CategoryOrder{
 //    @Column(name = "categoryName")
 //    private String categoryName;
 
+    @Column(name="categorylogo")
+    private String logo;
+    @JsonIgnore
     @OneToMany(mappedBy="category")
     private List<Order> orders=new ArrayList<>();
 
