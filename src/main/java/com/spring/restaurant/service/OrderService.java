@@ -41,5 +41,11 @@ public class OrderService {
 //        return orderRepository.findAll().size(); //int
         return orderRepository.findByCategoryId(id).size();            //Long
     }
+    public long getOrderLengthByCategoryId(Long id){
+        return orderRepository.getOrderLengthByCategoryId(id);            //Long
+    }
 
+    public long getOrderSizeByKey(String name){
+        return orderRepository.getOrderSizeByKey(name);            //Long
+    }
 }
