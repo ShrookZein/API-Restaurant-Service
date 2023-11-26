@@ -7,12 +7,13 @@ import org.hibernate.annotations.GeneratedColumn;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @Entity
 @Table(name = "category")
-public class Category extends CategoryOrder{
+public class Category extends PublicData{
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @Column(name = "categoryId")
@@ -24,6 +25,6 @@ public class Category extends CategoryOrder{
     private String logo;
     @JsonIgnore
     @OneToMany(mappedBy="category")
-    private List<Order> orders=new ArrayList<>();
+    private Set<Order> orders;
 
 }

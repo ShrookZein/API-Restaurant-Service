@@ -23,6 +23,6 @@ public class StateService {
     }
 
 //    public List<State> getStateByCountryCode(String code){
-//        return stateRepository.findStatesByCountryCode(code).getContent();
+//        return stateRepository.findByCountryCode(code);
 //    }
 }

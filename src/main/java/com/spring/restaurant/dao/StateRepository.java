@@ -14,6 +14,6 @@ public interface StateRepository extends JpaRepository<State,Long> {
     public List<State>findByCountryId(Long id);
 //    @Query("select * from State where country.code= EG")
 //    @Query("select * from State where country.code = ?1")
-//    public List<State> findByCountryCodee(String Code);
+//    public List<State> findByCountryCode(String Code);
 
 }

@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -19,5 +20,5 @@ public class Country extends PublicData {
 
     @OneToMany(mappedBy = "country")
     @JsonIgnore
-    private List<State>states;
+    private Set<State> states;
 }
